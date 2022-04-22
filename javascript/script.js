@@ -38,5 +38,10 @@ const app = new Vue({
         next() {
             this.current === 4 ? this.current = 0 : this.current++;
         }
+    },
+    mounted() {
+        this.intervalId = setInterval(() => {
+            this.next();
+        }, 3000)
     }
 })
