@@ -37,11 +37,17 @@ const app = new Vue({
         },
         next() {
             this.current === 4 ? this.current = 0 : this.current++;
+        },
+        auto() {
+            this.intervalId = setInterval(() => {
+                this.next();
+            }, 3000);
+        },
+        stop() {
+            clearInterval(this.intervalId);
         }
     },
     mounted() {
-        this.intervalId = setInterval(() => {
-            this.next();
-        }, 3000)
+        this.auto();
     }
 })
